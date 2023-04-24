@@ -18,11 +18,12 @@ export const FirstDiv = styled.div`
         }
             h1 {
             font-size: 4rem;
+            color: #fff;
             }
 `
 export const OverLay = styled.div`
 height: 55vh;
-background: rgba(37, 186, 255, 0.623);
+background: rgba(24, 24, 35, 0.904);
   
 `
 export const SecondRow = styled(Row)`

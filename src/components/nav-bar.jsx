@@ -1,12 +1,13 @@
 import React from 'react'
 import {Container, Nav, Navbar} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import Logo from '../images/medics4m.png'
 
 const NavBar = () =>{
     return (
-        <Navbar collapseOnSelect expand="lg" variant="light" bg="none" >
+        <Navbar collapseOnSelect expand="lg" variant="dark" bg="none" >
           <Container >
-            <Navbar.Brand href="/">MEDICS ON AIR</Navbar.Brand>
+            <Navbar.Brand href="/"><img style={{width: '100px'}} src={Logo} alt="Logo" /></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ms-auto">

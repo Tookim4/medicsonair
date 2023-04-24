@@ -3,7 +3,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import NavBar from '../components/nav-bar'
 import Footer from '../components/Footer'
 import image2 from '../images/image2.jpg'
-import {LandDiv, ServiceCol, ServiceRow, AboutCol, AboutRow, LastContainer} from '../styledcomponents/home-styled'
+import {LandDiv, ServiceCol, ServiceRow, AboutCol, AboutRow, LastContainer, HomeButton, OverLay, LandBtn} from '../styledcomponents/home-styled'
 import Aos from 'aos'
 
 
@@ -16,16 +16,18 @@ const HomePage= () => {
     <div>
 
       <LandDiv>
+        <OverLay>
         <NavBar/>
         <Container>
           <Row>
             <Col md={6} className="text-center intro">
               <h1 style={{fontStyle: 'bold', fontSize: '4.5rem'}}>Medics On Air</h1>
               <p className="lead">We provide top-quality and skilled medical escorts.</p>
-              <Button variant="primary">Book an Appointment</Button>
+              <LandBtn variant="primary" to={'/pages/contact-us'}>Book an Appointment</LandBtn>
             </Col>
           </Row>
         </Container>
+        </OverLay>
       </LandDiv>
 
 
@@ -42,7 +44,11 @@ const HomePage= () => {
             </ServiceCol>
             <ServiceCol md={4} className="text-center">
               <h3>Travel itinerary</h3>
-              <p>Our team will help you plan your travel. They will assist with advise on suitable airlines, needed documentation for the airport, any necessary medical devices needed for travel as well as necessary prescriptions... <Button>Read More</Button>  </p>
+              <p>Our team will help you plan your travel. They will assist with advise on suitable airlines, needed documentation for the airport, any necessary medical devices needed for travel as well as necessary prescriptions... 
+                <HomeButton className='nav-link' to={'/pages/services-page'}>
+                  Read More
+                </HomeButton>  
+              </p>
             </ServiceCol>
           </ServiceRow>
         </Container>
@@ -54,7 +60,11 @@ const HomePage= () => {
           <AboutRow >
             <AboutCol data-aos="zoom-in" md={6} className="text-center text-md-start">
               <h2>About Us</h2>
-              <p>Medics on Board was established in 2022 to deliver high quality, safe, fast and cost effective ways to transfer sick ones globally.  We offer dedicated medical patient assistants that are highly skilled to escort patients aboard commercial flights thus ensuring stress free travel. <a href="">Read More</a></p>
+              <p>Medics on Board was established in 2022 to deliver high quality, safe, fast and cost effective ways to transfer sick ones globally.  We offer dedicated medical patient assistants that are highly skilled to escort patients aboard commercial flights thus ensuring stress free travel. 
+              </p>
+              <HomeButton className='nav-link' to={'/pages/about-us'}>
+                  Read More
+                </HomeButton>
             </AboutCol>
             <AboutCol data-aos="fade-left" md={6} className="d-none d-md-block">
               <img  src={image2} alt="About Us" className="img-fluid" />
@@ -64,7 +74,7 @@ const HomePage= () => {
       </section>
 
       <section>
-        <LastContainer data-aos="zoom-in-up">
+        <LastContainer data-aos="zoom-in">
         <Row>
           <Col xs={12} md={{ span: 8, offset: 2 }} className="text-center mb-4">
             <h2>Why Choose Us</h2>

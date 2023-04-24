@@ -1,7 +1,9 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 import { FaTwitter, FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import './style.css'
+import Logo from '../images/MEDICS4x.png'
 import Aos from 'aos'
 
 
@@ -16,17 +18,16 @@ const Footer = () => {
       <div className="footer-column">
         <h4>MEET MEDICS ON AIR</h4>
         <ul>
-          <li><a href="#">CONTACT US</a></li>
-          <li><a href="#">ABOUT US</a></li>
-          <li><a href="#">SERVICES</a></li>
+          <li><Link eventkey={2} to={'/pages/contact-us'}>CONTACT US</Link></li>
+          <li><Link to={'/pages/about-us'}>ABOUT </Link></li> 
+          <li><Link to={'/pages/services-page'}>SERVICES</Link> </li> 
         </ul>
       </div>
       <div className="footer-column">
-        <h4>Column 2</h4>
         <ul>
-          <li><a href="#">Link 4</a></li>
-          <li><a href="#">Link 5</a></li>
-          <li><a href="#">Link 6</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Licensing</a></li>
+          <li><img style={{width: '300px'}} src={Logo} alt="Logo" /></li>
         </ul>
       </div>
       <div className="footer-column">
