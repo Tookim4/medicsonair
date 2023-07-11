@@ -2,15 +2,32 @@ import React from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import NavBar from '../components/nav-bar'
 import Footer from '../components/Footer'
-import image2 from '../images/image2.jpg'
-import {LandDiv, ServiceCol, ServiceRow, AboutCol, AboutRow, LastContainer, HomeButton, OverLay, LandBtn} from '../styledcomponents/home-styled'
+import image2 from '../images/bg11.png'
+import image1 from '../images/bg2.png'
+import {LandDiv, ServiceDiv, ServiceLink, AboutCol, AboutSection, AboutRow, LastContainer, HomeButton, OverLay, LandBtn} from '../styledcomponents/home-styled'
 import Aos from 'aos'
+import {MdKeyboardArrowRight} from 'react-icons/md'
+import '../index.css'
 
 
 const HomePage= () => {
+  const services = ['Transit medical care', 'Medical evaluation', 'Airline medical form completion', 'Travel itinerary'];
+  const [currentService, setCurrentService] = React.useState(services[0]);
+
   React.useEffect(()=>{
     Aos.init({duration:1500});
-}, []);
+  }, []);
+
+  React.useEffect(() => {
+    const intervalId = setInterval(rotateServices, 2000);
+    return () => clearInterval(intervalId);
+  });
+
+  const rotateServices = () => {
+    const currentIndex = services.indexOf(currentService);
+    const nextIndex = (currentIndex + 1) % services.length;
+    setCurrentService(services[nextIndex]);
+  };
 
   return (
     <div>
@@ -19,65 +36,69 @@ const HomePage= () => {
         <OverLay>
         <NavBar/>
         <Container>
-          <Row>
-            <Col md={6} className="text-center intro">
-              <h1 style={{fontStyle: 'bold', fontSize: '4.5rem'}}>Medics On Air</h1>
-              <p className="lead">We provide top-quality and skilled medical escorts.</p>
+          <Row className='align-items-center'>
+
+            <Col sm={12} md={6}className=" intro align-self-center">
+              <h1>Access to top-quality and skilled medical escorts.</h1>
+              <p className="lead">We oﬀer dedicated medical patient
+assistants that are highly skilled to escort patients aboard commercial ﬂights thus
+ensuring stress free travel.</p>
               <LandBtn variant="primary" to={'/pages/contact-us'}>Book an Appointment</LandBtn>
             </Col>
+
+            <Col md={6} className="image align-self-center">
+             <img  src={image1} alt="About Us" className="img-fluid" />
+            </Col>
+
           </Row>
         </Container>
         </OverLay>
       </LandDiv>
 
 
-      <section className="services-section bg-light">
+      <section className="services-section" style={{backgroundColor:'#faf9f9'}}>
         <Container >
-          <ServiceRow  >
-            <ServiceCol md={4} className="text-center">
-              <h3>Medical evaluation</h3>
-              <p>Our team of medical doctors will carry out a comprehensive medical assessment of the patient prior to travel. This will include physical examination and any relevant medical examinations as well as advise on medication and devices needed for travel. </p>
-            </ServiceCol>
-            <ServiceCol md={4} className="text-center">
-              <h3>Airline medical form completion</h3>
-              <p>Our team of medical doctors will offer medical form completion services as provided for by airlines.  The forms for fitness to fly will be completed after medical evaluation if and when necessary.</p>
-            </ServiceCol>
-            <ServiceCol md={4} className="text-center">
-              <h3>Travel itinerary</h3>
-              <p>Our team will help you plan your travel. They will assist with advise on suitable airlines, needed documentation for the airport, any necessary medical devices needed for travel as well as necessary prescriptions... 
-                <HomeButton className='nav-link' to={'/pages/services-page'}>
-                  Read More
-                </HomeButton>  
-              </p>
-            </ServiceCol>
-          </ServiceRow>
+          <ServiceDiv className="text-effect">
+          <p>Get Access today to <br />
+            <span className="animated-text">{currentService}</span>
+            <br />
+            <ServiceLink to={'/pages/services-page'}>
+                  See all our services <MdKeyboardArrowRight className='service-icon'/>
+              </ServiceLink> 
+          </p> 
+           
+          </ServiceDiv>
+        
         </Container>
       </section>
 
 
-      <section className="about-section">
+      <AboutSection className="about-section">
         <Container>
           <AboutRow >
-            <AboutCol data-aos="zoom-in" md={6} className="text-center text-md-start">
+
+          <AboutCol data-aos="fade-left" md={6} sm={12} className="align-self-center ">
+              <img  src={image2} alt="About Us"  style={{maxWidth:'100%'}}/>
+            </AboutCol>
+
+            <AboutCol data-aos="zoom-in" md={6} sm={12} className="align-self-center text-center text-md-start">
               <h2>About Us</h2>
               <p>Medics on Board was established in 2022 to deliver high quality, safe, fast and cost effective ways to transfer sick ones globally.  We offer dedicated medical patient assistants that are highly skilled to escort patients aboard commercial flights thus ensuring stress free travel. 
               </p>
-              <HomeButton className='nav-link' to={'/pages/about-us'}>
+              <HomeButton to={'/pages/about-us'}>
                   Read More
                 </HomeButton>
             </AboutCol>
-            <AboutCol data-aos="fade-left" md={6} className="d-none d-md-block">
-              <img  src={image2} alt="About Us" className="img-fluid" />
-            </AboutCol>
+            
           </AboutRow>
         </Container>
-      </section>
+      </AboutSection>
 
       <section>
         <LastContainer data-aos="zoom-in">
         <Row>
           <Col xs={12} md={{ span: 8, offset: 2 }} className="text-center mb-4">
-            <h2>Why Choose Us</h2>
+            <h2 style={{fontSize: '2.5rem'}}>Why Choose Us</h2>
           </Col>
         </Row>
 

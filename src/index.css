@@ -1,7 +1,14 @@
 * {
   margin: 0;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Sen', sans-serif;
   font-size: 1.1rem;
   overflow-x: hidden;
 }
 
+.service-icon{
+  transition: transform 0.2s ease-in-out;
+}
+
+.service-icon:hover {
+  transform: translateX(5px);
+}

@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import { FaTwitter, FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import './style.css'
-import Logo from '../images/MEDICS4x.png'
+// import Logo from '../images/MEDICS4x.png'
 import Aos from 'aos'
 
 
@@ -14,9 +14,10 @@ const Footer = () => {
 
   return (
     <footer>
+      <Container>
     <div className="footer-columns" data-aos="zoom-in">
       <div className="footer-column">
-        <h4>MEET MEDICS ON AIR</h4>
+        <h4><b>MEET MEDICS ON AIR</b></h4>
         <ul>
           <li><Link eventkey={2} to={'/pages/contact-us'}>CONTACT US</Link></li>
           <li><Link to={'/pages/about-us'}>ABOUT </Link></li> 
@@ -27,7 +28,7 @@ const Footer = () => {
         <ul>
           <li><a href="#">Privacy Policy</a></li>
           <li><a href="#">Licensing</a></li>
-          <li><img style={{width: '300px'}} src={Logo} alt="Logo" /></li>
+          {/* <li><img style={{width: '300px'}} src={Logo} alt="Logo" /></li> */}
         </ul>
       </div>
       <div className="footer-column">
@@ -50,6 +51,7 @@ const Footer = () => {
     <div className="footer-bottom">
       <p>&copy; 2023 KIMUTAITOO. All Rights Reserved.</p>
     </div>
+    </Container>
   </footer>
   );
 };
