@@ -18,24 +18,24 @@ import image6 from '../images/image6.png'
 
 
 const ServicesPage = () => {
-  const [error, setError] = useState(null);
-  const [services, setServices] = useState([]);
+//   const [error, setError] = useState(null);
+//   const [services, setServices] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:1337/api/services?populate=*")
-      .then(({ data }) => setServices(data.data))
-      .catch((error) => setError(error));
-  }, []);
+//   useEffect(() => {
+//     axios
+//       .get("http://localhost:1337/api/services?populate=*")
+//       .then(({ data }) => setServices(data.data))
+//       .catch((error) => setError(error));
+//   }, []);
 
-  useEffect(()=>{
-    AOS.init({duration:1500});
-}, []);
+//   useEffect(()=>{
+//     AOS.init({duration:1500});
+// }, []);
 
-  if (error) {
-    // Print errors if any
-    return <div>An error occured: {error.message}</div>;
-  }
+//   if (error) {
+//     // Print errors if any
+//     return <div>An error occured: {error.message}</div>;
+//   }
 
   
   return (
@@ -71,7 +71,7 @@ const ServicesPage = () => {
 
      <ServiceDiv>
       <Container>
-        {services.map(({ id, attributes }) => (
+        {/* {services.map(({ id, attributes }) => (
           <Row key={id} style={{padding: '100px'}}>
             <Col md={6} sm={12}>
               <h2>{attributes.title}</h2>
@@ -81,10 +81,10 @@ const ServicesPage = () => {
               <img src={`http://localhost:1337${attributes.image.data.attributes.url}`} alt={attributes.image.data.attributes.name} className="img-fluid"/>     
             </Col>
         </Row>
-        ))}
+        ))} */}
           
 
-        {/* <Row style={{padding: '100px'}}>
+        <Row style={{padding: '100px'}}>
           <Col md={6} sm={12} className="order-lg-first">
           <img  src={image2} alt="img1" className="img-fluid" />          
           </Col>
@@ -141,7 +141,7 @@ const ServicesPage = () => {
             They will help the patient to pack their relevant medications and medical devices 
             as well as conﬁrm that relevant documentation for travel is available.</p>
           </Col>
-        </Row> */}
+        </Row>
 
       </Container>
      </ServiceDiv>
